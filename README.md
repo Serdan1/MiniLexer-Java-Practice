@@ -45,7 +45,7 @@ El resultado en consola mostrará la clasificación completa en el formato `Toke
 ## 🔑 Lógica de Clasificación
 
 El método clasificarToken() implementa la siguiente lógica secuencial:
-    - Palabras Clave: Chequea por "if" o "int".
-    - Operadores/Delimitadores: Chequea por símbolos como "=", "==", ";", "(", etc..
-    - Literal Numérico: Usa una expresión simple para verificar si son dígitos ([0-9]+).
-    - Identificador: Usa la cláusula else final, asumiendo que cualquier lexema que no cumpla con las reglas anteriores es un identificador.
+- Palabras Clave: Chequea por "if" o "int".
+- Operadores/Delimitadores: Chequea por símbolos como "=", "==", ";", "(", etc..
+- Literal Numérico: Usa una expresión simple para verificar si son dígitos ([0-9]+).
+- Identificador: Usa la cláusula else final, asumiendo que cualquier lexema que no cumpla con las reglas anteriores es un identificador.
