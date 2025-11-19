@@ -51,7 +51,7 @@ El método clasificarToken() implementa la siguiente lógica secuencial:
 - Identificador: Usa la cláusula else final, asumiendo que cualquier lexema que no cumpla con las reglas anteriores es un identificador.
 
 ## 💡 Diagrama de Flujo del MiniLéxer (Mermaid Graph TD)
-```mermaid
+
 graph TD
 
     %% --- Estructuras ---
