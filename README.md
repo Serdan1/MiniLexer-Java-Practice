@@ -55,25 +55,20 @@ El método clasificarToken() implementa la siguiente lógica secuencial:
 ```mermaid
 graph TD
 
-    %% --- Data Structures ---
     subgraph Data_Structures ["Data Structures"]
-        A[TipoToken.java (Enum)]
-        B[Token.java (Class)]
+        A[TipoToken.java Enum]
+        B[Token.java Class]
     end
 
-    %% --- Execution Flow ---
     subgraph Lexer_Process ["Program Execution Flow"]
-        C[Main.java (main)] -->|Static method call| D{Lexer.getEntradaTokens}
-        D -->|Returns String[]| E[Loop: process each lexeme]
-
-        E -->|Lexeme| F{Lexer.clasificarToken}
-        F -->|Returns TipoToken| G[Create Token object]
-        G -->|New Token| H[toString: print to console]
-
-        E --> I[Store into Token[]]
+        C[Main.java main] --> D{Lexer.getEntradaTokens}
+        D --> E[Loop process lexeme]
+        E --> F{clasificarToken}
+        F --> G[Create Token]
+        G --> H[Print toString]
+        E --> I[Store in Token array]
     end
 
-    %% --- Dependencies ---
     D --> A
     F --> A
     G --> B
