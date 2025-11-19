@@ -50,7 +50,7 @@ El método clasificarToken() implementa la siguiente lógica secuencial:
 - Literal Numérico: Usa una expresión simple para verificar si son dígitos ([0-9]+).
 - Identificador: Usa la cláusula else final, asumiendo que cualquier lexema que no cumpla con las reglas anteriores es un identificador.
 
-##💡 Diagrama de Flujo del MiniLéxer (Mermaid Graph TD)
+## 💡 Diagrama de Flujo del MiniLéxer (Mermaid Graph TD)
 graph TD
 
     %% Estructuras
