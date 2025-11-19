@@ -1,8 +1,9 @@
 public class Main {
 
     public static void main(String[] args) {
-        // Obtiene la lista de tokens desde la clase Lexer
-        String[] entradaTokens = Lexer.getEntradaTokens();
+
+        // CAMBIO CLAVE: Acceso directo a la constante pública de la clase Lexer
+        String[] entradaTokens = Lexer.ENTRADA_TOKENS;
 
         // Array para almacenar los objetos Token generados
         Token[] tokensGenerados = new Token[entradaTokens.length];

@@ -1,43 +1,35 @@
 public class Lexer {
-    // Constante de tokens de entrada
-    private static final String[] ENTRADA_TOKENS = {
+
+    // CAMBIO CLAVE: Declarar la constante como 'public' para acceso directo desde Main.java
+    public static final String[] ENTRADA_TOKENS = {
             "int", "valor", "=", "3", ";",
             "if", "(", "valor", "==", "5", ")",
             "valor", "=", "0", ";"
     };
 
+    // ELIMINADO: El método getEntradaTokens() ya no es necesario.
+
     /**
      * Determina el TipoToken al que pertenece un lexema dado (Lógica de Clasificación).
+     * (Este método permanece sin cambios)
      */
     public static TipoToken clasificarToken(String lexema) {
-        // 1. PALABRAS CLAVE: if o int
+        // ... (Lógica de clasificación) ...
         if (lexema.equals("if") || lexema.equals("int")) {
             return TipoToken.PALABRA_CLAVE;
         }
-
-        // 2. OPERADORES / DELIMITADORES
+        // ... (Resto de la lógica) ...
         if (lexema.equals("==") || lexema.equals("=") || lexema.equals("+")) {
             return TipoToken.OPERADOR;
         }
         if (lexema.equals(";") || lexema.equals("(") || lexema.equals(")")) {
             return TipoToken.DELIMITADOR;
         }
-
-        // 3. LITERALES NUMÉRICOS
         if (lexema.matches("[0-9]+")) {
             return TipoToken.LITERAL_NUMERICO;
         }
-
-        // 4. IDENTIFICADORES
         else {
             return TipoToken.IDENTIFICADOR;
         }
-    }
-
-    /**
-     * Permite acceder a la lista de tokens desde el exterior (Clase Main).
-     */
-    public static String[] getEntradaTokens() {
-        return ENTRADA_TOKENS;
     }
 }
