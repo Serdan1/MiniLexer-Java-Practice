@@ -56,29 +56,33 @@ El método clasificarToken() implementa la siguiente lógica secuencial:
 graph TD
 
     subgraph Data_Structures ["Data Structures"]
-        A[[Enum TipoToken]]
-        B[[Class Token]]
+        A[TipoToken Enum]
+        B[Token Class]
     end
 
     subgraph Lexer_Process ["Lexer Execution Flow"]
-        C((Main.main))
-        D((getEntradaTokens))
-        E((For each lexeme))
-        F((clasificarToken))
-        G((Create Token))
-        H((Print toString))
-        I((Store Token[]))
+        C[Main main] --> D{getEntradaTokens}
+        D -->|String array| E[For each lexeme]
+        E -->|lexeme| F{clasificarToken}
+        F -->|TipoToken| G[Create Token]
+        G -->|token| H[Print toString]
+        E --> I[Store in array]
     end
-
-    C --> D
-    D -->|String[]| E
-    E -->|lexeme| F
-    F -->|TipoToken| G
-    G -->|token| H
-    E --> I
 
     D --> A
     F --> A
     G --> B
     H --> B
     C --> I
+
+    style Data_Structures fill:#eef,stroke:#66a,stroke-width:1px
+    style Lexer_Process fill:#efe,stroke:#6a6,stroke-width:1px
+    style A fill:#cde
+    style B fill:#cde
+    style C fill:#dfd
+    style D fill:#dfd
+    style E fill:#dfd
+    style F fill:#fed
+    style G fill:#fed
+    style H fill:#fed
+    style I fill:#dfd
