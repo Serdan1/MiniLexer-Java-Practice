@@ -49,3 +49,35 @@ El método clasificarToken() implementa la siguiente lógica secuencial:
 - Operadores/Delimitadores: Chequea por símbolos como "=", "==", ";", "(", etc..
 - Literal Numérico: Usa una expresión simple para verificar si son dígitos ([0-9]+).
 - Identificador: Usa la cláusula else final, asumiendo que cualquier lexema que no cumpla con las reglas anteriores es un identificador.
+
+classDiagram
+    direction LR
+
+    class Main {
+        +main(String[]): void
+    }
+    
+    class Lexer {
+        -ENTRADA_TOKENS: String[]
+        +clasificarToken(String): TipoToken
+        +getEntradaTokens(): String[]
+    }
+    
+    class Token {
+        -tipo: TipoToken
+        -lexema: String
+        +Token(TipoToken, String)
+        +toString(): String
+    }
+    
+    class TipoToken {
+        <<enumeration>>
+        PALABRA_CLAVE
+        IDENTIFICADOR
+        ...
+    }
+
+    % Relaciones de Dependencia (Uso)
+    Main --> Lexer : usa
+    Token --> TipoToken : contiene
+    Lexer --> TipoToken : retorna
