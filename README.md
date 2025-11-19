@@ -53,25 +53,22 @@ El método clasificarToken() implementa la siguiente lógica secuencial:
 ### 💡 Diagrama de Flujo del MiniLéxer (Mermaid Graph TD)
 
 ```mermaid
-graph TD
+graph LR
 
-    %% --- Data Structures ---
     subgraph Data_Structures ["Data Structures"]
         A[TipoToken Enum]
         B[Token Class]
     end
 
-    %% --- Lexer Execution Flow ---
     subgraph Lexer_Process ["Lexer Execution Flow"]
         C[Main main] --> D{getEntradaTokens}
-        D -->|returns String array| E[For each lexeme]
+        D -->|String array| E[For each lexeme]
         E -->|lexeme| F{clasificarToken}
-        F -->|returns TipoToken| G[Create Token object]
+        F -->|TipoToken| G[Create Token]
         G -->|token| H[Print toString]
-        E --> I[Store into Token array]
+        E --> I[Store in array]
     end
 
-    %% --- Dependencies ---
     D --> A
     F --> A
     G --> B
