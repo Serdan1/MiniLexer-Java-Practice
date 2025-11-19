@@ -53,7 +53,7 @@ El método clasificarToken() implementa la siguiente lógica secuencial:
 ### 💡 Diagrama de Flujo del MiniLéxer (Mermaid Graph TD)
 
 ```mermaid
-graph TD
+graph LR
 
     subgraph Data_Structures ["Data Structures"]
         A[TipoToken Enum]
@@ -75,14 +75,3 @@ graph TD
     H --> B
     C --> I
 
-    style Data_Structures fill:#eef,stroke:#66a,stroke-width:1px
-    style Lexer_Process fill:#efe,stroke:#6a6,stroke-width:1px
-    style A fill:#cde
-    style B fill:#cde
-    style C fill:#dfd
-    style D fill:#dfd
-    style E fill:#dfd
-    style F fill:#fed
-    style G fill:#fed
-    style H fill:#fed
-    style I fill:#dfd
