@@ -50,34 +50,30 @@ El método clasificarToken() implementa la siguiente lógica secuencial:
 - Literal Numérico: Usa una expresión simple para verificar si son dígitos ([0-9]+).
 - Identificador: Usa la cláusula else final, asumiendo que cualquier lexema que no cumpla con las reglas anteriores es un identificador.
 
-classDiagram
-```mermaid
+💡 Diagrama de Flujo del MiniLéxer (Mermaid Graph TD)
+graph TD
+    %% Estructuras
+    subgraph Archivos_y_Estructuras [Estructuras de Datos]
+        A[TipoToken.java (Enum)]
+        B[Token.java (Clase)]
+    end
 
-    class Main {
-        +main(String[]): void
-    }
-    
-    class Lexer {
-        -ENTRADA_TOKENS: String[]
-        +clasificarToken(String): TipoToken
-        +getEntradaTokens(): String[]
-    }
-    
-    class Token {
-        -tipo: TipoToken
-        -lexema: String
-        +Token(TipoToken, String)
-        +toString(): String
-    }
-    
-    class TipoToken {
-        <<enumeration>>
-        PALABRA_CLAVE
-        IDENTIFICADOR
-        ...
-    }
+    %% Proceso de Inicialización y Ejecución
+    subgraph Proceso_Léxico [Flujo de Ejecución del Programa]
+        C[Main.java (main)] -->|Llamada a método estático| D{Lexer.getEntradaTokens()}
+        D -->|Tokens (String[])| E[Bucle: Procesar cada Lexema]
+        
+        E -->|Lexema (String)| F{Lexer.clasificarToken(lexema)}
+        F -->|TipoToken Clasificado| G[Crear nuevo Objeto Token]
+        G -->|Nuevo Token| H[Impresión por Consola (toString)]
+        
+        E --> I(Almacenamiento en Token[])
+    end
 
-    % Relaciones de Dependencia (Uso)
-    Main --> Lexer : usa
-    Token --> TipoToken : contiene
-    Lexer --> TipoToken : retorna
+    %% Relaciones de Dependencia
+    D --> A
+    F --> A : usa y retorna
+    G --> B : crea instancia
+    H --> B : usa método
+
+    C --> I : Resultado final
